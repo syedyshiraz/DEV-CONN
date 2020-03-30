@@ -7,6 +7,9 @@
   </head>
   <body>
     <h1>{{ home_page }}</h1>
+    <h1>hello</h1>
+    <span class="hello-msg">hello.{{request.user}}</span>
+    <span class="hello-msg"><a href="{% url 'logout' %}">logout</a></span>
     <img src="{% static 'images/django.jpg' %}" alt="uh oh, didn't show the picture!">
   </body>
 </html>

@@ -1,6 +1,13 @@
-from django.conf.urls import url
-from DC_app import views
+from django.urls import path
+from . import views
 
 urlpatterns =[
-    url(r'^$',views.homepage,name='Homepage'),
+   
+    path('register/',views.registerPage,name="register"),
+    path('login/',views.loginPage,name='login'),
+    path('logout/',views.logoutfield,name='logout'),
+    path('',views.home,name='home'),
+     
+     
+     
 ]
