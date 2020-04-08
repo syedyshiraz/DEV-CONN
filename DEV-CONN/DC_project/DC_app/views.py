@@ -11,9 +11,6 @@ from django.contrib import messages
 # Create your views here.
 
 
-
-
-
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect("home")
@@ -29,7 +26,7 @@ def registerPage(request):
                 return redirect("login")
     context = {"form": form}
 
-    return render(request, "DC_app/register.html", context)
+    return render(request, "register.html", context)
 
 
 def loginPage(request):
@@ -45,7 +42,7 @@ def loginPage(request):
             messages.info(request, "username and pasword is incorrect ")
 
     context = {}
-    return render(request, "DC_app/login.html", context)
+    return render(request, "login.html", context)
 
 
 def logoutfield(request):
@@ -56,4 +53,4 @@ def logoutfield(request):
 @login_required(login_url="login")
 def home(request):
     dict = {"home_page": "Welcome to the home page"}
-    return render(request, "DC_app/homePage.html", context=dict)
+    return render(request, "homePage.html", context=dict)

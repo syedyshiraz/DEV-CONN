@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<img class="wave" src="{% static 'wave.png'%}">
+<div class="container">
+  <div class="img">
+    <img src="{% static 'phone.svg' %}">
+  </div>
+  <div class="login-content">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <img src="{% static 'user.png' %}">
+      <h2 class="title">Welcome</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+
+          <input type="text" class="input" placeholder="Username">
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+
+          <input type="password" class="input" placeholder="Password">
+        </div>
+      </div>
+      <a href="{% url 'register' %}">Dont have an Acount?</a>
+      <input type="submit" class="btn" value="Login">
+      <div class="message">
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+          <p id="messages">{{message}}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}
