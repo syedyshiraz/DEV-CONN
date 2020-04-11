@@ -16,8 +16,8 @@
           <i class="fas fa-user"></i>
         </div>
         <div class="div">
-
-          <input type="text" class="input" placeholder="Username">
+          <h5>Username</h5>
+          <input type="text" class="input">
         </div>
       </div>
       <div class="input-div pass">
@@ -25,17 +25,19 @@
           <i class="fas fa-lock"></i>
         </div>
         <div class="div">
-
-          <input type="password" class="input" placeholder="Password">
+          <h5>Password</h5>
+          <input type="password" class="input">
         </div>
       </div>
       <a href="{% url 'register' %}">Dont have an Acount?</a>
       <input type="submit" class="btn" value="Login">
       <div class="message">
         <div class="alert alert-success" role="alert">
+          {% if form.error %}
           {% for message in messages %}
           <p id="messages">{{message}}</p>
           {% endfor %}
+          {% endif %}
         </div>
       </div>
 
@@ -45,4 +47,26 @@
   </div>
 
 </div>
+<script>
+  const inputs = document.querySelectorAll(".input");
+
+
+  function addcl() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add("focus");
+  }
+
+  function remcl() {
+    let parent = this.parentNode.parentNode;
+    if (this.value == "") {
+      parent.classList.remove("focus");
+    }
+  }
+
+
+  inputs.forEach(input => {
+    input.addEventListener("focus", addcl);
+    input.addEventListener("blur", remcl);
+  });
+</script>
 {% endblock %}

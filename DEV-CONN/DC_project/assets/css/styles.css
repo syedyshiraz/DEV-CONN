@@ -87,7 +87,7 @@ form{
 	height: 45px;
 }
 
-.input-div > div > h5{
+ h5{
 	position: absolute;
 	left: 10px;
 	top: 50%;
