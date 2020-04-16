@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>team section</title>
+    <link rel="stylesheet" href="{%static 'css/style.css' %}" />
+    </head>
+
+    <body>
+    <span class="hello-msg"><a href="{% url 'home' %}">back</a></span>
+    <div class="team-section">
+     <h1>our Team </h1>
+     <span class="border"></span>
+    <div class = "ps">
+        <a href="#rayan"><img src="{% static 'rayan.jpg' %}" alt=""></a>
+        <a href="#stalin"><img src="{% static 'stalin.jpeg' %}" alt=""></a>
+        <a href="#syed"><img src="{% static 'syed.jpeg' %}" alt=""></a>
+        <a href="#spoorthi"><img src="{% static 'spoorthi.jpeg' %}" alt=""></a>
+       
+    </div>
+
+    <div class="section" id="stalin">
+          <span class="name">STALIN S</span>
+          <span class="border"></span>
+          <p>
+          
+            Email: stalin.sangeethraj@gmail.com 
+ 
+          </p>
+        </div>   
+        <div class="section" id="rayan">
+            <span class="name">SYED</span>
+            <span class="border"></span>
+            <p>
+            
+              Email: syedshiraz@gmail.com
+   
+            </p>
+          </div> 
+          <div class="section" id="syed">
+            <span class="name">RAYAN</span>
+            <span class="border"></span>
+            <p>
+            
+              Email: rayanbackup1@gmail.com
+   
+            </p>
+          </div>    
+          <div class="section" id="spoorthi">
+            <span class="name">SPOORTHI HEBBAR</span>
+            <span class="border"></span>
+            <p>
+            
+              Email:  spoorthi.hebbar@gmail.com
+   
+            </p>
+          </div>
+
+    </div>
+    </div>
+
+    </body>
+    </html>

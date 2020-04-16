@@ -40,6 +40,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "DC_app",
     "DC_blog",
+    'social_django',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +73,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -116,3 +126,22 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "assets"),)
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'stalin.sangeethraj@gmail.com'
+EMAIL_HOST_PASSWORD = 'bzcjmsxzeaasfwxt'
+
+LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "15853055328-k4poeanq0t74f6vv109a6kpg2a8n4mfh.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "VVgGXpE998SFuqtNhXdsNirs"
+
+SOCIAL_AUTH_GITHUB_KEY = "37383971980b8db4d8a0"
+SOCIAL_AUTH_GITHUB_SECRET = "794a9a854be06bbb9c8b6c3560db258a150c611a"
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = "2568398946812028"
+SOCIAL_AUTH_FACEBOOK_SECRET = "e88ffa2feecc704664cbb8c1db95d9a1"

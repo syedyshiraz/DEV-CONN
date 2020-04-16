@@ -7,7 +7,7 @@
     <img src="{% static 'phone.svg' %}">
   </div>
   <div class="login-content">
-    <form action="" method="POST">
+    <form  method="POST" action="">
       {% csrf_token %}
       <img src="{% static 'user.png' %}">
       <h2 class="title">Welcome</h2>
@@ -17,7 +17,7 @@
         </div>
         <div class="div">
           <h5>Username</h5>
-          <input type="text" class="input">
+          <input type="text" name="username"  class="input">
         </div>
       </div>
       <div class="input-div pass">
@@ -26,23 +26,44 @@
         </div>
         <div class="div">
           <h5>Password</h5>
-          <input type="password" class="input">
+          <input type="password" name="password"  class="input">
         </div>
       </div>
+ 
+      
       <a href="{% url 'register' %}">Dont have an Acount?</a>
       <input type="submit" class="btn" value="Login">
+      
+      <div class="d-flex justify-content-center links">
+        Forgot password? <a href="{% url 'reset_password' %}" class="ml-2">Reset password</a>
+      </div>
+     
+      
+      <p> __ or__ </p>
+      <a href="{% url 'social:begin' 'github' %}">
+        <button type = "button" name= "button" class ="btn btn-primary" >github</button>
+      </a>
+
+
+      <a href="{% url 'social:begin' 'google-oauth2' %}" class="google btn">
+        <i class="fa fa-google fa-fw"></i> Login with Google+
+      </a>
+    
+      <a href="{% url 'social:begin' 'facebook' %}">
+        <button type = "button" name= "button" class ="btn btn-danger" >facebook</button>
+         
+      </a>
+   
       <div class="message">
         <div class="alert alert-success" role="alert">
-          {% if form.error %}
           {% for message in messages %}
-          <p id="messages">{{message}}</p>
-          {% endfor %}
-          {% endif %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}		
         </div>
-      </div>
-
+      
 
     </form>
+    </div>
 
   </div>
 
@@ -70,3 +91,18 @@
   });
 </script>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
