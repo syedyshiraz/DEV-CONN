@@ -1,0 +1,44 @@
+{% extends "DC_blog/base_temp.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<form action="site-form" action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="jumbotron">
+        <h1 class="display-4">Create an Awesome Article!</h1>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Title</label>
+            {{form.title }}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Content</label>
+            {{form.content}}
+
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Slug</label>
+            <br>
+            {{form.slug}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Thumbnail</label>
+            {{form.thumb}}
+        </div>
+
+
+
+</form>
+
+<hr class="my-4">
+
+<hr class="my-4">
+<p>Creating an article is the first step in changing the World for the better.</p>
+<p class="lead">
+    <a class="btn btn-primary btn-lg" value="Create" href="#" role="button">Create Article</a>
+</p>
+</div>
+<script src="/static/sluggify.js"></script>
+{% endblock %}

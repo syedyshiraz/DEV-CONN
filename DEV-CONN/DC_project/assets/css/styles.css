@@ -220,3 +220,93 @@ a:hover{
 		justify-content: center;
 	}
 }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ff9914;
+}
+.box {
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+.card {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.card:before,
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: 0.5s;
+  z-index: -1;
+}
+.card:hover:before {
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.card:hover:after {
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.card .imgBx {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+}
+.card:hover .imgBx {
+  bottom: 80px;
+}
+
+.card .imgBx h4,
+p {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  margin-top: 50px;
+  padding: 2px;
+}
+.card .details {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 50px;
+  text-align: center;
+}
+.card .imgBx h3 {
+  margin: 100px;
+  color: #fff;
+  font-size: 1.5em;
+}
+.card .details {
+  text-align: center;
+}
+.card .details p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 15px;
+  color: #222;
+}

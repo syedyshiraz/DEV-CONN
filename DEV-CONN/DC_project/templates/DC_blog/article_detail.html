@@ -1,0 +1,102 @@
+{% extends "DC_blog/base_temp.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    <!-- Automatic Slideshow Images -->
+    <div class="mySlides w3-display-container w3-center">
+        <img src="{{ article.thumb.url }}" style="width:100%">
+
+    </div>
+
+    <!-- The Band Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">{{ article.title }}</h2>
+
+        <p class="w3-justify">{{ article.content }}</p>
+
+    </div>
+
+    <!-- The Tour Section -->
+    <div class="w3-black" id="tour">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">Like it?</h2>
+            <p class="w3-opacity w3-center"><i>Create your own blog at <a href="{% url 'create' %}"><span
+                            class="w3-tag w3-red w3-margin-left">DEV-CONN</span></a></i></p><br>
+
+        </div>
+    </div>
+
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">CONTACT</h2>
+
+        <div class="w3-row w3-padding-32">
+            <div class="w3-col m6 w3-large w3-margin-bottom">
+                {{user.username}}<br>
+
+                <i class="fa fa-envelope" style="width:30px"> </i> Email: {{user.email}}<br>
+            </div>
+            <div class="w3-col m6">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End Page Content -->
+</div>
+
+
+
+<script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
+
+
+<div class="article-detail">
+    <div class="article">
+        <img src="{{ article.thumb.url }}" />
+        <h2>{{ article.title }}</h2>
+
+        <p>{{ article.content }}</p>
+        <p>{{ article.date }}</p>
+    </div>
+</div>

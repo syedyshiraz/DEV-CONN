@@ -1,0 +1,41 @@
+{%  extends "DC_blog/base_temp.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<form action="site-form" action="{% url 'link' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="jumbotron">
+        <h1 class="display-4">Share your Idea with the World!</h1>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Name of Repository</label>
+            {{form.repo_name}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">A Brief Description of your Project</label>
+            {{form.repo_desc}}
+
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Repository URL</label>
+            <br>
+            {{form.repo_addr}}
+        </div>
+
+
+
+
+</form>
+
+<hr class="my-4">
+
+<hr class="my-4">
+<p>Creating an article is the first step in changing the World for the better.</p>
+<p class="lead">
+    <a class="btn btn-primary btn-lg" value="Link" href="#" role="button">Link Repository</a>
+</p>
+</div>
+
+{% endblock %}
