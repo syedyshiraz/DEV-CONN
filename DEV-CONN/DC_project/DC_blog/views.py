@@ -26,18 +26,31 @@ def article_detail(request, slug):
     }
     return render(request, "DC_blog/article_detail.html", context)
 
-
+@login_required(login_url='login')
 def link_repo(request):
-    form = forms.CreateRepo()
+    if request.method == "POST":
+        form = forms.CreateRepo(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
+            form.save()
+            return redirect("list")
+    else:
+            form = forms.CreateRepo()
     return render(request, "DC_blog/link_repo.html", {"form": form})
 
-
+@login_required(login_url='login')
 def article_create(request):
     if request.method == "POST":
         form = forms.CreateArticle(request.POST, request.FILES)
         if form.is_valid():
+
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             form.save()
-            redirect("list")
+            return redirect("list")
     else:
         form = forms.CreateArticle()
-        return render(request, "DC_blog/article_create.html", {"form": form})
+    return render(request, "DC_blog/article_create.html", {"form": form})

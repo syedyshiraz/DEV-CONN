@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<form action="site-form" action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+<form class="site-form" action="{% url 'create' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="jumbotron">
         <h1 class="display-4">Create an Awesome Article!</h1>
@@ -28,17 +28,44 @@
             {{form.thumb}}
         </div>
 
+        <hr class="my-4">
+
+        <hr class="my-4">
+        <p>Creating an article is the first step in changing the World for the better.</p>
+        <p class="lead">
+            <!-- <a class="btn btn-primary btn-lg" value="Create" href="#" role="button">Create Article</a> -->
+            <input class="btn btn-primary btn-lg" type="submit" value="Create Article">
+        </p>
+
+
 
 
 </form>
+<script>
+  const titleInput = document.querySelector('input[name=title]');
+const slugInput = document.querySelector('input[name=slug]');
 
-<hr class="my-4">
+const slugify = (val) => {
 
-<hr class="my-4">
-<p>Creating an article is the first step in changing the World for the better.</p>
-<p class="lead">
-    <a class="btn btn-primary btn-lg" value="Create" href="#" role="button">Create Article</a>
-</p>
-</div>
-<script src="/static/sluggify.js"></script>
+    return val.toString().toLowerCase().trim()
+        .replace(/&/g, '-and-')         // Replace & with 'and'
+        .replace(/[\s\W-]+/g, '-')      // Replace spaces, non-word characters and dashes with a single dash (-)
+
+};
+
+titleInput.addEventListener('keyup', (e) => {
+    slugInput.setAttribute('value', slugify(titleInput.value));
+});
+</script>
+
+<!-- <hr class="my-4">
+
+<hr class="my-4"> -->
+<!-- <p>Creating an article is the first step in changing the World for the better.</p>
+<p class="lead"> -->
+    <!-- <a class="btn btn-primary btn-lg" value="Create" href="#" role="button">Create Article</a> -->
+    <!-- <input class="btn btn-primary btn-lg" type="submit" value="Create Article">
+</p> -->
+<!-- </div> -->
+
 {% endblock %}

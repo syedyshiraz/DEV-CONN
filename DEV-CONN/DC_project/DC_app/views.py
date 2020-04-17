@@ -36,7 +36,7 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('list')
 
         else:
             messages.info(request, 'username and pasword is incorrect ')
@@ -47,7 +47,7 @@ def loginPage(request):
 
 def logoutfield(request):
     logout(request)
-    return redirect("login")
+    return redirect("list")
 
 
 @login_required(login_url='login')
@@ -59,4 +59,3 @@ def home(request):
 @login_required(login_url='login')
 def contact(request):
     return render(request,'team.html')
-

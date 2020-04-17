@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-<form action="site-form" action="{% url 'link' %}" method="POST" enctype="multipart/form-data">
+<form class="site-form" action="{% url 'link' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="jumbotron">
         <h1 class="display-4">Share your Idea with the World!</h1>
@@ -23,19 +23,28 @@
             <br>
             {{form.repo_addr}}
         </div>
+        <hr class="my-4">
+
+        <hr class="my-4">
+        <p>Creating an article is the first step in changing the World for the better.</p>
+        <p class="lead">
+            <!-- <a class="btn btn-primary btn-lg" value="Link" href="#" role="button">Link Repository</a> -->
+            <input class="btn btn-primary btn-lg" type="submit" value="Link Repository">
+        </p>
 
 
 
 
 </form>
 
-<hr class="my-4">
+<!-- <hr class="my-4">
 
 <hr class="my-4">
 <p>Creating an article is the first step in changing the World for the better.</p>
-<p class="lead">
-    <a class="btn btn-primary btn-lg" value="Link" href="#" role="button">Link Repository</a>
-</p>
-</div>
+<p class="lead"> -->
+    <!-- <a class="btn btn-primary btn-lg" value="Link" href="#" role="button">Link Repository</a> -->
+    <!-- <input class="btn btn-primary btn-lg" type="submit" value="Link Repository">
+</p> -->
+<!-- </div> -->
 
 {% endblock %}
