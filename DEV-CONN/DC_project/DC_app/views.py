@@ -30,19 +30,19 @@ def registerPage(request):
 
 
 def loginPage(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("home")
+            return redirect('home')
 
         else:
-            messages.info(request, "username and pasword is incorrect ")
+            messages.info(request, 'username and pasword is incorrect ')
 
     context = {}
-    return render(request, "login.html", context)
+    return render(request, 'login.html', context)
 
 
 def logoutfield(request):
@@ -50,7 +50,13 @@ def logoutfield(request):
     return redirect("login")
 
 
-@login_required(login_url="login")
+@login_required(login_url='login')
 def home(request):
     dict = {"home_page": "Welcome to the home page"}
     return render(request, "homePage.html", context=dict)
+
+
+@login_required(login_url='login')
+def contact(request):
+    return render(request,'team.html')
+
