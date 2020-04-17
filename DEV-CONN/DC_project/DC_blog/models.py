@@ -18,7 +18,7 @@ class Blog(models.Model):
         return self.title
 
     def snippet(self):
-        return self.content[:30] + "..."
+        return self.content[:60] + "..."
 
 
 class Gitpost(models.Model):
@@ -32,4 +32,4 @@ class Gitpost(models.Model):
         return self.repo_name
 
     def snippet(self):
-        return self.repo_desc[:30] + "..."
+        return self.repo_desc[:60] + "..."
