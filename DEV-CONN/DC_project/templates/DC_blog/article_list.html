@@ -78,22 +78,22 @@ hello
 
 <div class="w3-container">
     <hr>
+    <header class="w3-padding w3-display-container w3-blue-grey w3-margin-bottom">
 
-
-    <header class="w3-container w3-blue-grey">
+      <span onclick="show()" style="display:None" id="downButton" class="w3-button w3-display-right" name = ""><i
+        style="padding-right:16;hover={background-color:none}" class="fa fa-arrow-down"></i></span>
         <h2>About Us</h2>
+
     </header>
 
-    <div class="w3-padding w3-white w3-display-container">
-        <span onclick="this.parentElement.style.display='block'" class="w3-button w3-display-topright" name = ""><i
+    <div class="w3-padding w3-white w3-display-container" id="aboutButton">
+        <span onclick="closeit()" style="display:block" class="w3-button w3-display-topright" name = ""><i
                 class="fa fa-remove"></i></span>
         <h2>DEV-CONN</h2>
         <p>We are passionate about Open-source developement just the way you are! We want to build a platform where we,
             the students of UVCE can co-create and make the best of our opportunities</p>
     </div>
-
-
-
+    
     <hr>
 
 </div>
@@ -149,6 +149,25 @@ hello
         <p>Remember to check out our repository at  <a href=" https://github.com/syedyshiraz/DEV-CONN"
                 class="w3-btn w3-theme-light" target="_blank">GitHub Repo</a></p>
     </footer>
+    <!-- About us is turned on when clicked -->
+    <script>
+      function show() {
+        var x = document.getElementById("aboutButton");
+        var y = document.getElementById("downButton");
+        x.style.display = "block";
+        y.style.display = "None";
+      }
+    </script>
+
+    <!-- About us is turned off when clicked -->
+    <script>
+      function closeit() {
+        var x = document.getElementById("aboutButton");
+        var y = document.getElementById("downButton");
+        x.style.display = "None";
+        y.style.display = "Block";
+      }
+    </script>
 
     <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
     <script>
