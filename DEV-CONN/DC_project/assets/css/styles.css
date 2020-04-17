@@ -150,7 +150,7 @@ form{
 
 a{
 	display: block;
-	text-align: right;
+	text-align: center;
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
@@ -161,7 +161,7 @@ a:hover{
 	color: #38d39f;
 }
 
-.btn{
+.stn{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -311,3 +311,69 @@ p {
   font-size: 15px;
   color: #222;
 }
+
+.alert {
+	padding: 20px;
+	background-color: #f44336; /* Red */
+	color: white;
+	margin-bottom: 15px;
+  }
+  
+  /* The close button */
+  .closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+	color: black;
+  }
+
+
+
+
+  .btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	 
+	background-size: 200%;
+	font-size: 1.2rem;
+	 
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+
+
+
+
+  
+
+.fb {
+	background-color: #3B5998;
+	color: white;
+  }
+  
+  .twi {
+	background-color: #55ACEE;
+	color: white;
+  }
+  
+  .google {
+	background-color: #dd4b39;
+	color: white;
+  }
