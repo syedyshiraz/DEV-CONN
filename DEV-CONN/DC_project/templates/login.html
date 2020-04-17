@@ -38,34 +38,37 @@
 
 
       <a href="{% url 'register' %}">Dont have an Acount?</a>
-      <input type="submit" class="btn" value="Login">
+      <input type="submit" class="stn" value="Login">
 
       <div class="d-flex justify-content-center links">
         Forgot password? <a href="{% url 'reset_password' %}" class="ml-2">Reset password</a>
       </div>
 
 
-      <p> __ or__ </p>
-      <a href="{% url 'social:begin' 'github' %}">
-        <button type="button" name="button" class="btn btn-primary">github</button>
+      <div class="col">
+      <a href="{% url 'social:begin' 'github' %}" class="twi btn">
+        <i class="fa fa-github"  ></i>github
       </a>
 
 
       <a href="{% url 'social:begin' 'google-oauth2' %}" class="google btn">
         <i class="fa fa-google fa-fw"></i> Login with Google+
       </a>
-
-      <a href="{% url 'social:begin' 'facebook' %}">
-        <button type="button" name="button" class="btn btn-danger">facebook</button>
+ 
+      <a href="{% url 'social:begin' 'facebook' %}" class="fb btn">
+      <i class="fa fa-facebook fa-fw"></i> Login with Facebook
 
       </a>
 
-      <div class="message">
-        <div class="alert alert-success" role="alert">
-          {% for message in messages %}
-          <p id="messages">{{ message }}</p>
-          {% endfor %}
-        </div>
+      </div>
+ 
+
+ 
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        .{% for message in messages %}
+        <p id="messages">{{message}}</p>
+      {% endfor %}
       </div>
 
 
