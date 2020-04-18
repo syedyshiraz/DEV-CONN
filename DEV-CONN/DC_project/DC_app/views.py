@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -13,7 +13,7 @@ from django.contrib import messages
 
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect("home")
+        return redirect("list")
     else:
 
         form = CreateUserForm()
@@ -39,10 +39,11 @@ def loginPage(request):
             return redirect('list')
 
         else:
-            messages.info(request, 'username and pasword is incorrect ')
+            messages.error(request, 'Incorrect Username or Password!')
+            return redirect('login')
 
     context = {}
-    return render(request, 'login.html', context)
+    return render(request, 'login.html')
 
 
 def logoutfield(request):
